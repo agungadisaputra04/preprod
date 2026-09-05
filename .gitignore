@@ -1,0 +1,23 @@
+# Python virtual environment
+preprod/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Pytest cache
+.pytest_cache/
+
+# Backup files
+*.bak
+*_bak
+*.py_bak
+
+# Runtime/output files
+nohup.out
+*.log
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
