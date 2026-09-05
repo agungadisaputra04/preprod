@@ -61,7 +61,8 @@ async def database_exception_handler(request, exc):
 @app.get("/")
 def root():
     return {
-        "message": "API is running"
+        "message": "API is running",
+    	"version": "1.0"
     }
 
 
