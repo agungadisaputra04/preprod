@@ -71,3 +71,11 @@ def test_create_user_invalid_type():
     )
 
     assert response.status_code == 422
+
+def test_health():
+    response = client.get("/health")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "status": "healthy"
+    }
