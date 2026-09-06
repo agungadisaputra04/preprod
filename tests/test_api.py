@@ -71,3 +71,12 @@ def test_create_user_invalid_type():
     )
 
     assert response.status_code == 422
+
+def test_info():
+    response = client.get("/info")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "name": "API Lab",
+        "description": "REST API untuk belajar DevOps"
+    }

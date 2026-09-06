@@ -70,6 +70,14 @@ def get_version():
         "version": "1.0"
     }
 
+@app.get("/info")
+def get_info():
+    return {
+        "name": "API Lab",
+        "description": "REST API untuk belajar DevOps"
+    }
+
+
 @app.post(
     "/user",
     status_code=201,
