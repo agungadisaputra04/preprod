@@ -11,7 +11,8 @@ def test_root():
 
     assert response.status_code == 200
     assert response.json() == {
-        "message": "API is running"
+        "message": "API is running",
+	"version": "1.0"
     }
 
 

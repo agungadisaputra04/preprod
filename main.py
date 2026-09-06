@@ -57,14 +57,18 @@ async def database_exception_handler(request, exc):
         }
     )
 
-
 @app.get("/")
 def root():
     return {
         "message": "API is running",
-    	"version": "1.0"
+        "version": "1.0"
     }
 
+@app.get("/version")
+def get_version():
+    return {
+        "version": "1.0"
+    }
 
 @app.post(
     "/user",
