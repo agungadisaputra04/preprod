@@ -79,4 +79,12 @@ def test_info():
     assert response.json() == {
         "name": "API Lab",
         "description": "REST API untuk belajar DevOps"
+	}
+
+def test_health():
+    response = client.get("/health")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "status": "healthy"
     }

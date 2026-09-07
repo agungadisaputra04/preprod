@@ -244,3 +244,9 @@ def delete_user_endpoint(
             "umur": deleted_user[2]
         }
     }
+
+@app.get("/health")
+def health_check():
+    return {
+        "status": "healthy"
+    }
