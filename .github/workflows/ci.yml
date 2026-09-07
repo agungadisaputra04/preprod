@@ -54,6 +54,12 @@ jobs:
 
       - name: Run tests
         env:
+          DB_HOST: localhost
+          DB_PORT: 5432
+          DB_NAME: api_lab_test
+          DB_USER: api_lab_app
+          DB_PASSWORD: testpassword
+
           TEST_DB_HOST: localhost
           TEST_DB_PORT: 5432
           TEST_DB_NAME: api_lab_test
