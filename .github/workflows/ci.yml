@@ -41,6 +41,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Initialize database schema
+        env:
+          PGPASSWORD: testpassword
+        run: |
+          psql \
+            -h localhost \
+            -p 5432 \
+            -U api_lab_app \
+            -d api_lab_test \
+            -f tests/schema.sql
+
       - name: Run tests
         env:
           TEST_DB_HOST: localhost
