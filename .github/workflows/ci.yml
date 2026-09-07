@@ -45,12 +45,36 @@ jobs:
         env:
           PGPASSWORD: testpassword
         run: |
+          echo "=== PostgreSQL connection ==="
+          psql \
+            -h localhost \
+            -p 5432 \
+            -U api_lab_app \
+            -d api_lab_test \
+            -c "SELECT current_database(), current_user;"
+          echo "=== Initialize schema ==="         
           psql \
             -h localhost \
             -p 5432 \
             -U api_lab_app \
             -d api_lab_test \
             -f tests/schema.sql
+
+          echo "=== Verify users table ==="
+          psql \
+            -h localhost \
+            -p 5432 \
+            -U api_lab_app \
+            -d api_lab_test \
+            -c "\dt"
+
+          echo "=== Verify users structure ==="
+          psql \
+            -h localhost \
+            -p 5432 \
+            -U api_lab_app \
+            -d api_lab_test \
+            -c "\d users"
 
       - name: Run tests
         env:
